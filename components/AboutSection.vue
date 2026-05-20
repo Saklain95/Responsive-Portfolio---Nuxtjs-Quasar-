@@ -53,6 +53,8 @@
               class="btn-primary"
               label="Download Resume"
               no-caps
+              :href="resume"
+              target="_blank"
               icon="mdi-download"
             />
           </div>
@@ -64,6 +66,7 @@
 
 <script setup>
 import profile from '~/assets/data/profile-photo.jpg';
+import resume from '~/assets/data/resume.pdf';
 const highlights = [
   { icon: 'mdi-map-marker', text: 'Based in Bengaluru, India' },
   { icon: 'mdi-briefcase', text: 'Open to full-time & freelance work' },

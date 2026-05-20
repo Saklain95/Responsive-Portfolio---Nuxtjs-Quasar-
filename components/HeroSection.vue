@@ -33,6 +33,8 @@
               label="Download CV"
               no-caps
               icon="mdi-download"
+              :href="resumePdf"
+              target="_blank"
             />
           </div>
 
@@ -82,6 +84,7 @@
 
 <script setup>
 import profile from '~/assets/data/profile-photo.jpg';
+import resumePdf from '~/assets/data/resume.pdf'
 const stats = [
   { num: '1+', label: 'Years Experience' },
   { num: '10+', label: 'Projects Done' },
