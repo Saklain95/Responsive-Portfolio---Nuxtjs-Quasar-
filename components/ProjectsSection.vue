@@ -117,6 +117,15 @@ const projects = [
   tags: ['Django', 'Python', 'DRF', 'REST API', 'HTML', 'CSS', 'JavaScript'],
   category: 'Web App',
 },
+{
+  title: 'Responsive Portfolio Website',
+  emoji: '💼',
+  bg: 'linear-gradient(135deg, #d1c4e9, #b39ddb)',
+  desc: 'Modern responsive portfolio website built with Vue.js, Nuxt.js, and Quasar Framework.',
+  longDesc: 'Designed and developed a fully responsive personal portfolio website using Vue.js, Nuxt.js, and Quasar Framework with a modern UI/UX approach. Implemented smooth scrolling navigation, responsive layouts, animated sections, project showcase cards, skills section, and contact form integration. Focused on clean component-based architecture, mobile-first responsiveness, performance optimization, and interactive user experience. Added dark-themed modern styling, reusable components, and deployment-ready production configuration.',
+  tags: ['Vue.js', 'Nuxt.js', 'Quasar Framework', 'JavaScript', 'HTML', 'CSS', 'Responsive Design', 'Frontend Development'],
+  category: 'Portfolio Website',
+},
   {
     title: 'TaskMate App',
     emoji: '✅',
