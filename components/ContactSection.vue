@@ -47,6 +47,7 @@
                 label="Full Name"
                 outlined
                 dense
+                lazy-rules
                 :rules="[val => !!val || 'Name is required']"
                 style="font-family: var(--font-body);"
               />
@@ -55,6 +56,7 @@
                 label="Email Address"
                 type="email"
                 outlined
+                lazy-rules
                 dense
                 :rules="[val => !!val || 'Email is required', val => /.+@.+\..+/.test(val) || 'Enter a valid email']"
               />
@@ -64,6 +66,7 @@
               v-model="form.subject"
               label="Subject"
               outlined
+              lazy-rules
               dense
             />
 
@@ -71,6 +74,7 @@
               v-model="form.message"
               label="Your Message"
               type="textarea"
+              lazy-rules
               outlined
               rows="5"
               :rules="[val => !!val || 'Message is required']"
@@ -135,8 +139,12 @@ async function onSubmit() {
       body: JSON.stringify(form),
     })
 
+    const data = await res.json()
+
+    console.log(data)
+
     if (!res.ok) {
-      throw new Error('Server error')
+      throw new Error(JSON.stringify(data))
     }
 
     Notify.create({
@@ -160,9 +168,9 @@ async function onSubmit() {
 
     Notify.create({
       type: 'negative',
-      message: 'Failed to send message!',
+      message: err.message || 'Failed to send message!',
       position: 'top',
-      timeout: 2500,
+      timeout: 4000,
     })
 
   } finally {
