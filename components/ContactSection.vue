@@ -105,6 +105,7 @@
 </template>
 
 <script setup>
+import { Notify } from 'quasar'
 const sending = ref(false)
 const showSuccess = ref(false)
 
@@ -124,10 +125,48 @@ const contactLinks = [
 
 async function onSubmit() {
   sending.value = true
-  // Simulate API call — replace with your actual form submission logic
-  await new Promise(resolve => setTimeout(resolve, 1500))
-  sending.value = false
-  showSuccess.value = true
-  Object.assign(form, { name: '', email: '', subject: '', message: '' })
+
+  try {
+    const res = await fetch('https://saklain-portfolio-backend.onrender.com/api/contact/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
+    })
+
+    if (!res.ok) {
+      throw new Error('Server error')
+    }
+
+    Notify.create({
+      type: 'positive',
+      message: 'Message sent successfully!',
+      position: 'top',
+      timeout: 2500,
+    })
+
+    showSuccess.value = true
+
+    Object.assign(form, {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    })
+
+  } catch (err) {
+    console.error(err)
+
+    Notify.create({
+      type: 'negative',
+      message: 'Failed to send message!',
+      position: 'top',
+      timeout: 2500,
+    })
+
+  } finally {
+    sending.value = false
+  }
 }
 </script>
