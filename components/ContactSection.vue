@@ -131,17 +131,28 @@ async function onSubmit() {
   sending.value = true
 
   try {
-    const res = await fetch('https://saklain-portfolio-backend.onrender.com/api/contact/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form),
-    })
+    const res = await fetch(
+      'https://saklain-portfolio-backend.onrender.com/api/contact/',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      }
+    )
 
-    const data = await res.json()
+    const text = await res.text()
 
-    console.log(data)
+    console.log('RAW RESPONSE:', text)
+
+    let data = {}
+
+    try {
+      data = JSON.parse(text)
+    } catch (e) {
+      throw new Error('Backend returned HTML instead of JSON')
+    }
 
     if (!res.ok) {
       throw new Error(JSON.stringify(data))
@@ -152,15 +163,6 @@ async function onSubmit() {
       message: 'Message sent successfully!',
       position: 'top',
       timeout: 2500,
-    })
-
-    showSuccess.value = true
-
-    Object.assign(form, {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
     })
 
   } catch (err) {
