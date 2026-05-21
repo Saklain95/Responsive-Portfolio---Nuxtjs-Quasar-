@@ -9,10 +9,11 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "nuxt": "^3.10.0",
-    "quasar": "^2.14.0",
     "@quasar/extras": "^1.16.9",
-    "nuxt-quasar-ui": "^2.1.2"
+    "@vercel/analytics": "^2.0.1",
+    "nuxt": "^3.10.0",
+    "nuxt-quasar-ui": "^2.1.2",
+    "quasar": "^2.14.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest"

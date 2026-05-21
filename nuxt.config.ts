@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ['nuxt-quasar-ui'],
+  modules: ['nuxt-quasar-ui', '@vercel/analytics'],
 
   quasar: {
     plugins: ['Notify', 'Dialog'],
