@@ -142,6 +142,8 @@ async function onSubmit() {
       }
     )
 
+    console.log("res---", res);
+
     const text = await res.text()
 
     console.log('RAW RESPONSE:', text)

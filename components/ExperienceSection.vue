@@ -41,6 +41,15 @@
 <script setup>
 const experiences = [
   {
+    role: 'Associate System Engineer',
+    company: 'IBM',
+    location: 'Bengaluru',
+    period: 'Jun 2026 – Present',
+    emoji: '☁️',
+    desc: 'Developed and maintained Oracle Cloud Integration (OIC) solutions by designing integration flows between Oracle Fusion Applications and external systems. Worked with REST APIs, SOAP Web Services, Java, SQL, XML, and Oracle Integration Cloud to build, test, and troubleshoot integrations. Collaborated with cross-functional teams to optimize workflows, resolve integration issues, and ensure reliable and secure application delivery.',
+    techs: ['Oracle Integration Cloud (OIC)', 'Oracle Fusion', 'Java', 'REST API', 'SOAP', 'SQL', 'XML'],
+  },
+  {
     role: 'Software Engineer',
     company: 'Dashloc',
     location: 'Bengaluru',
